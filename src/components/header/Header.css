@@ -1,0 +1,62 @@
+.Header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.Header-links {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Header-header {
+    margin-top: 20px;
+    text-transform: uppercase;
+    font-size: 35px;
+    font-weight: 200;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5)
+}
+
+.Main-btn {
+    height: 30px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    background-color: cadetblue;
+    color: rgba(255, 255, 255, 0.513);
+    border: none;
+    font-size: 18px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+
+.Main-btn:hover {
+    transform: scale(1.1);
+    color: white;
+}
+
+.Basket {
+    margin: 10px;
+    height: 30px;
+}
+
+.Go-home {
+    text-decoration: none;
+    color:black;
+}
+
+.Input-search {
+    width: 200px;
+    padding: 5px;
+}
+.Header-basket {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+}

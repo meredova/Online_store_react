@@ -1,0 +1,35 @@
+.Card-container {
+    margin-top: 20px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 50%;
+    background-color: aliceblue;
+}
+
+.Card-img {
+    mix-blend-mode: darken;
+}
+
+.Card-rating {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.Card-remain {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.Card-count {
+    margin-top: 20px;
+}
+
+.Btns-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 200px;
+}

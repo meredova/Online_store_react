@@ -1,0 +1,10 @@
+.Category {
+    font-size: 20px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+.Category:hover {
+    cursor: pointer;
+    color:cadetblue
+}

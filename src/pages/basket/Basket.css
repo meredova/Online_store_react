@@ -1,0 +1,22 @@
+.Basket-container {
+    background-color: hotpink;
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Basket-group {
+    display: flex;
+    width: 600px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Price-container {
+    display: flex;
+    width: 200px;
+    justify-content: space-between;
+}
