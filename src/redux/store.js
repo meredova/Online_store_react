@@ -1,12 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
-import counterReducer from './slices/counterSlice'
-import basketReducer from './slices/basketSlice'
-import productsReducer from './slices/productsSlice'
-import categoriesReducer from './slices/categoriesSlice'
+import basketReducer from './slices/basketSlice.ts'
+import productsReducer from './slices/productsSlice.ts'
+import categoriesReducer from './slices/categoriesSlice.ts'
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
     basketShop: basketReducer,
     items: productsReducer,
     categories: categoriesReducer,

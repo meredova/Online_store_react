@@ -1,5 +1,5 @@
 .Basket-container {
-    background-color: hotpink;
+    margin-top: 30px;
     min-height: 100vh;
     min-width: 100vw;
     display: flex;
@@ -7,14 +7,12 @@
     justify-content: center;
     align-items: center;
 }
-
-.Basket-group {
+.Basket-wrapper {
     display: flex;
-    width: 600px;
-    display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    width: 1000px;
+    flex-wrap: wrap;
 }
-
 .Price-container {
     display: flex;
     width: 200px;

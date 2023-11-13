@@ -1,9 +1,10 @@
 import { useEffect } from 'react'
 import './Home.css'
-import Product from '../../components/products/Product'
-import Categories from '../../components/categories/Categories'
-import { getProductsByCategory, getSearchProducts } from '../../redux/slices/productsSlice'
+import Product from '../../components/products/Product.jsx'
+import Categories from '../../components/categories/Categories.tsx'
+import { getProductsFromCategories, getSearchProducts } from '../../redux/slices/productsSlice.ts'
 import { useSelector, useDispatch } from 'react-redux'
+import { loadBasketFromLS } from '../../redux/slices/basketSlice.ts'
 
 const Home = () => {
 
@@ -14,28 +15,32 @@ const Home = () => {
     const searchProduct = useSelector((state) => state.items.searchItems)
 
     useEffect(() => {
-        dispatch (getProductsByCategory())
+        const asyncFn = async () => {
+            dispatch (getProductsFromCategories(category))
+            dispatch(loadBasketFromLS())
+        }
+        asyncFn()
     }, [])
 
-    const productsData = products.map(({title, price, id, image}) => (
+    const productsData = products.map(({title, price, id, image, totalPrice}) => (
         <Product 
         title = {title}
         price = {price}
         product_ph = {image}
         key = {id}
         id = {id}
+        totalPrice = {totalPrice}
         />
     ))
    
   useEffect(() => {
-    category === 'all' ? dispatch (getProductsByCategory()) :
-    dispatch(getProductsByCategory(category))
+    dispatch(getProductsFromCategories(category))
   }, [category])
 
     
     useEffect(() => {
         if(searchProduct === '') {
-            dispatch (getProductsByCategory())
+            dispatch (getProductsFromCategories(category))
         } else {
             dispatch(getSearchProducts(searchProduct))
         }

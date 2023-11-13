@@ -20,9 +20,24 @@
     width: 200px;
 }
 
+.Product-prices {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Product-prices h3 {
+    margin-bottom: 0;
+}
+.Product-prices div {
+    margin: 5px;
+    font-size: 10px;
+    font-weight: bold;
+    color: rgb(69, 69, 69);
+}
+
 .Add-product {
     position: absolute;
-    bottom: 40px;
+    bottom: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;

@@ -1,34 +1,52 @@
 import './Basket.css'
 import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import Product from './../../components/products/Product.jsx'
+import { useSelector, useDispatch } from 'react-redux'
+import { loadBasketFromLS } from '../../redux/slices/basketSlice.ts'
+import { useEffect } from 'react'
 
 const Basket = () => {
 
-    const basket = useSelector((state) => state.basketShop.basket)
-    const totalSum = useSelector((state) => state.basketShop.totalSum)
+    const totalSum = useSelector((state) => state?.basketShop.totalPrice)
+    const basketLocalStor = useSelector((state) => state?.basketShop.basketLS)
 
-    
-    const basketUI = basket.map(({id, title, count, price}) =>(
-        <div className='Basket-group'>
-            <Link to={`/card/${id}`} className='Product-title'>{title}</Link>
-            <div className='Price-container'>
-                <div key = {id}>{count}</div>
-                <div key = {id}>{price} $</div>
-            </div>
-        </div>
+    const dispatch = useDispatch()
+
+
+
+    const  basketUI = basketLocalStor.map(
+        ({id, title, itemPrice, image, totalItemPrice }) =>(
+            <Product
+                title = {title}
+                price = {itemPrice}
+                product_ph = {image}
+                key = {id}
+                id = {id}
+                totalItemPrice = {totalItemPrice}
+            />
+   
+        // <div  className='Basket-group'>
+        //     <Link to={`/product/${id}`} className='Product-title'>{title}</Link>
+        //     <div className='Price-container'>
+        //         <div>
+        //             <button>-</button>
+        //             {count}
+        //             <button>+</button>
+        //         </div>
+        //         <div>{price} $</div>
+        //     </div>
+        // </div>
     ))
-    
+
+    useEffect(() => {
+        dispatch(loadBasketFromLS())
+    }, [totalSum])
     
     return(
         <div className="Basket-container">
-            <div className='Basket-group'>
-                <h3>Title</h3> 
-                <div className='Price-container'>
-                    <h3>Count</h3>
-                    <h3>Price</h3>
-                </div>
+            <div className='Basket-wrapper'>
+                {basketUI.length > 0 ? basketUI : <h1>EMPTY</h1>}
             </div>
-            {basketUI.length > 0 ? basketUI : <h1>EMPTY</h1>}
             <h3>Total: {totalSum} $</h3>
         </div>
     )
